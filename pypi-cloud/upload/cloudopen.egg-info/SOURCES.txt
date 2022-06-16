@@ -1,0 +1,9 @@
+README.md
+setup.cfg
+setup.py
+cloudopen/__init__.py
+cloudopen.egg-info/PKG-INFO
+cloudopen.egg-info/SOURCES.txt
+cloudopen.egg-info/dependency_links.txt
+cloudopen.egg-info/requires.txt
+cloudopen.egg-info/top_level.txt

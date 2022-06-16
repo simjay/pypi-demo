@@ -1,2 +1,2 @@
-# pypi-demo
+# PyPI Demo
 PyPI Demo for CloudOpen 2022

@@ -1,0 +1,52 @@
+# Default values for pypi-cloud.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+namespace: pypi-cloud
+
+image:
+  service:
+    repository: simjay
+    pullPolicy: IfNotPresent
+    imageName: pypi-cloud-demo
+    tag: 0.0.3
+
+aws:
+  access_key_id: ""
+  secret_access_key: ""
+
+app:
+  service: pypi-cloud
+
+containerPort:
+  service: 8080
+
+replicas:
+  service: 2
+
+imagePullSecrets: []
+
+podAnnotations: {}
+
+podSecurityContext: {}
+
+securityContext: {}
+
+service:
+  service:
+    port: 8080
+
+resources:
+  service:
+    requests:
+      memory: "100Mi"
+      cpu: "0.1"
+    limits:
+      memory: "1Gi"
+      cpu: "1"
+
+nodeSelector:
+  role: ""
+
+tolerations: []
+
+affinity: {}

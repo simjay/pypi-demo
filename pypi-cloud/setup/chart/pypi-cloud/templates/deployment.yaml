@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Chart.Name }}
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: {{ .Chart.Name }}
+spec:
+  replicas: {{ .Values.replicas.service }}
+  revisionHistoryLimit: 0
+  selector:
+    matchLabels:
+      app: {{ .Chart.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Chart.Name }}
+    spec:
+      containers:
+      - name: {{ .Chart.Name }}
+        env:
+          - name: AWS_ACCESS_KEY_ID
+            value: {{ .Values.aws.access_key_id | b64dec }}
+          - name: AWS_SECRET_ACCESS_KEY
+            value: {{ .Values.aws.secret_access_key | b64dec }}
+        image: {{ .Values.image.service.repository }}/{{ .Values.image.service.imageName }}:{{ .Values.image.service.tag }}
+        ports:
+        - containerPort: {{ .Values.containerPort.service }}
+        resources:
+          {{- toYaml .Values.resources.service | nindent 10 }}
