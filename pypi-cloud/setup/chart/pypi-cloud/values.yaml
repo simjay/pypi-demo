@@ -11,8 +11,8 @@ image:
     tag: 0.0.3
 
 aws:
-  access_key_id: ""
-  secret_access_key: ""
+  accessKeyId: ""
+  secretAccessKey: ""
 
 app:
   service: pypi-cloud

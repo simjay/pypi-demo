@@ -20,9 +20,9 @@ spec:
       - name: {{ .Chart.Name }}
         env:
           - name: AWS_ACCESS_KEY_ID
-            value: {{ .Values.aws.access_key_id | b64dec }}
+            value: {{ .Values.aws.accessKeyId | b64dec | quote }}
           - name: AWS_SECRET_ACCESS_KEY
-            value: {{ .Values.aws.secret_access_key | b64dec }}
+            value: {{ .Values.aws.secretAccessKey | b64dec | quote }}
         image: {{ .Values.image.service.repository }}/{{ .Values.image.service.imageName }}:{{ .Values.image.service.tag }}
         ports:
         - containerPort: {{ .Values.containerPort.service }}
